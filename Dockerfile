@@ -1,5 +1,5 @@
 # 1. 베이스 이미지 설정 (JDK 17 기준)
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jdk-alpine
 
 # 2. 작업 디렉토리 생성
 WORKDIR /app
