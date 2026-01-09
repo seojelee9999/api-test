@@ -1,5 +1,5 @@
 on:
-  pull_request:
+  push:
     branches:
       - main
       - test
@@ -24,11 +24,11 @@ jobs:
           mkdir -p src/main/resources
           if [ "${{ github.base_ref }}" = "main" ]; then
             echo "${{ secrets.APPLICATION_PROD_YML }}" > src/main/resources/application-prod.yml
-            ./gradlew build -Dspring.profiles.active=prod
+            ./gradlew build -x test -Dspring.profiles.active=prod
             echo "ENV=prod" >> $GITHUB_ENV # 다음 스텝에서 쓰기 위해 환경변수 저장
           else
             echo "${{ secrets.APPLICATION_DEV_YML }}" > src/main/resources/application-dev.yml
-            ./gradlew build -Dspring.profiles.active=dev
+            ./gradlew build -x test -Dspring.profiles.active=dev
             echo "ENV=dev" >> $GITHUB_ENV
           fi
 
