@@ -1,0 +1,13 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  datasource:
+    url: jdbc:postgresql://3.35.191.125:5431/test_dev
+    username: id_dev
+    password: password
+
+  jpa:
+    hibernate:
+      ddl-auto: validate # 운영 서버는 테이블 자동 수정을 방지하기 위해 validate 권장

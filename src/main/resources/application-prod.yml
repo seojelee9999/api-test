@@ -1,8 +1,13 @@
 spring:
+  config:
+    activate:
+      on-profile: prod
+
+  datasource:
+    url: jdbc:postgresql://3.35.191.125:5432/test_prod
+    username: id_prod
+    password: password
+
   jpa:
     hibernate:
       ddl-auto: validate
-  datasource:
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
