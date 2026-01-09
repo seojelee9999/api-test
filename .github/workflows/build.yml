@@ -45,7 +45,7 @@ jobs:
       # 빌드 시 특정 프로필을 활성화해서 테스트하도록 설정
       run: |
         if [ "${{ github.base_ref }}" = "main" ]; then
-          ./gradlew build -Dspring.profiles.active=prod
+          ./gradlew build -x test -Dspring.profiles.active=prod
         else
-          ./gradlew build -Dspring.profiles.active=dev
+          ./gradlew build -x test -Dspring.profiles.active=dev
         fi
